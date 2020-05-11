@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!----Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--My CSS-->
+    <link rel="stylesheet" href="./style.css">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script> 
+        $(function(){
+          $("#header").load("header.html"); 
+        });
+        </script> 
+  </head>
+  <body>
+    
+    <div id="header"></div>
+
+    <div id="TICN-container" class="TICN container">
+      <h1>Triton Image Captioning Network</h1>
+
+      <div class="row justify-content-center align-items-center project-description">
+        <p>
+        Triton Image Captioning Network is a <strong>neural network</strong> trained on ~60,000 images and ~500,000 captions from the Microsoft Common Objects in Context (COCO) dataset.
+        The general structure of the network consists of a <strong>convolutional neural network</strong> (CNN) which encodes the features of an image into a vector,
+        and then passes this feature vector to a <strong>long-short-term-memory</strong> (LSTM) network which then produces the sentence representing the features of the image. After hundreds of hours
+        of training and weeks of hyperparameter tuning, we were able to create a network that reliably, and accurately captions images whose subjects are as varied as wildlife, office spaces and sports imagery.
+      </p>
+      </div>
+
+      <div class="row justify-content-around align-items-center project-photos">
+        <div class="col-3">
+          <img src="./img/ex_img.png">
+        </div>
+        <div class="col-3">
+          <img src="./img/ex_img2.png">
+        </div>
+
+        <div class="col-3">
+          <img src="./img/ex_img3.png">
+        </div>
+      </div>
+
+      <div class="row justify-content-between align-items-center purpose-container project-description">
+        <div class="col-8 project-purpose">
+          Our team created TICN to meet the growing demand for quality captions in the digital age. As media of all forms increasingly moves online, large segments of the population 
+          are left behind as a result of the <strong>lack of proper web accesibility</strong>. Yet with over 500 hours of video uploaded to Youtube alone every minute, captioning each video manually is 
+          all but impossible and thus we must look for automated alternatives. We thus seek to apply the latest in deep learning technology to solve the task of <strong>novel image captioning</strong>.
+        </div>
+
+        <div class="col-3 team-list">
+          <h1 class="project-section-header">
+            Team
+          </h1>
+          <h2>Daniel Shvarts</h2>
+          <h2>Blake Lewis</h2>
+          <h2>Chinmay Shah</h2>
+          <h2>Minh Tran Quoc</h2>
+          <h2>Ruoyu Xu</h2>
+        </div>
+      </div>
+
+      <h2 class="section-header">Neural Network Architecture</h2>
+
+      <div class="row justify-content-between align-items-center network-architecture">
+        <div clas="col-12">
+          <img src="./img/nn_architecture.jpeg">
+          <div class="description">
+            To make a neural network capable of addressing the task of novel image captioning we first needed a network that could identify the objects within a 
+            given image. Fortunately, CNN's are perfectly suited for this task, as their design enables them to look at various region of the image, identify the features
+            present within that region, and use the features to identify the objects within that image. Rather than having to train a CNN from scratch, we instead chose to use 
+            the pretrained Resnet50 model available in Pytorch, which is a revolutionary, award-winning architecture introduced in 2015 and will be more than suitable for our purposes.</br>
+          </br>
+            With the object identification out of the way, we next needed to figure out a way to take the output of the CNN representing the objects within the image, and create
+            a sentence describing the objects whose structure is a valid sequence. Thus rather than outputting nonsense like "boy ball catch boy ball", the network would output "a boy catching a ball".
+            This order dependence is task most suited for LSTM's, whose structure enables them learn what info to propogate forward at each step. Thus an LSTM can learn that after
+            outputting the words "a boy catching a", the next logical word is "ball". </br>
+          </br>
+            By combining the CNN with an LSTM we arrive at the classic CNN-LSTM image captioning model. After the image is passed through the CNN, the output 
+            is a vector which represents features of the input image. This feature vector then serves as the first input into the LSTM, which will generate a sequence 
+            of words representing the features in the image. Each LSTM cell outputs a single word, which then serves as the input for the next LSTM cell along with a modified feature vector. 
+          </br>
+        </br>
+            
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-header">Training and Hyperparameter Tuning</h2>
+    <div class="row justify-content-center align-items-start network-training">
+      <div class="col-3 caption">
+        Needless to say, the initial network performance was pretty bad...
+        </div>
+      <div class="col-3">
+        <img src="./img/ex_img4.png">
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-start network-training">
+      <div class="col-3 caption">
+        It even tried to cheat by spamming "&lt;start&gt;", which designates the start of a sentence, and because all
+          captions had to begin with "&lt;start&gt;", it's error rate went down.
+        </div>
+      <div class="col-3">
+        <img src="./img/ex_img5.png">
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-start network-training">
+      <div class="col-3 caption">
+        Eventually it learned enough to identify some of the objects in the images and even create semi-coherent sentence structure.
+        </div>
+      <div class="col-3">
+        <img src="./img/ex_img6.png">
+      </div>
+    </div>
+
+
+    <div class="row justify-content-center align-items-start network-training">
+      <div class="col-3 caption">
+        And after hours of training... <br>
+        Wow, that's pretty good!
+        </div>
+      <div class="col-3">
+        <img src="./img/ex_img7.png">
+      </div>
+    </div>
+
+
+    <div class="row justify-content-center align-items-start network-training">
+      <div class="col-3 caption">
+        Now look at it go!
+        </div>
+      <div class="col-3">
+        <img src="./img/nn_gif.gif" width="480" height="216">
+      </div>
+    </div>
+
+
+      
+  
+    <h2 class="section-header">Results</h2>
+    <div class="row justify-content-center align-items-start results-container">
+      <div class="col-12 results">
+        Cherry picking some good image captions is one thing, but what about a quantitative evaluation of our network's performance? For that we used Bilingual evalution understudy
+        (BLEU) scores which are the field standard for assessing the quality of machine generated text. There are variaty of BLEU scores, but the general idea is that they range from
+        0 to 1 and the higher the score the more like human speech the text is. Thus without further ado, here are the BLEU scores for serveral of our trained models:
+
+
+        <div class="table-container">
+          <table class="caption-results">
+            <caption class="results_caption"><span style="font-weight: bold">TICN BLEU Scores:</span> BLEU1 and BLEU4 scores achieved by our best CNN-LSTM network. Pre-trained embedding refers 
+            to the GLoVe word embedding whereas self trained embedding was trained from scratch using only the vocabularly in microsoft COCO dataset. 
+          The deterministic selection simply selects the word which the model deems as having the highest probability occuring, whereas stochastic selection samples a word with some 
+        temperature t, the higher the temperature the more likely the model is to pick a word which has a low probability of occuring. </caption>
+            <tr>
+              <th></th>
+              <th>LSTM w/ self-trained  embedding</th>
+              <th>LSTM w/ pre-trained embedding</th>
+            </tr>
+            <tr>
+              <td class="row-label">Deterministic BLEU1</td>
+              <td>84.31</td>
+              <td>83.52</td>
+            </tr>
+            <tr>
+              <td class="row-label">Stochastic (0.1) BLEU1</td>
+              <td>84.30</td>
+              <td>83.67</td>
+            </tr>
+            <tr>
+              <td class="row-label">Stochastic (0.5) BLEU1</td>
+              <td>83.73</td>
+              <td>83.46</td>
+            </tr>
+            <tr>
+              <td class="row-label">Deterministic BLEU4</td>
+              <td>36.78</td>
+              <td>36.80</td>
+            </tr>
+            <tr>
+              <td class="row-label">Stochastic (0.1) BLEU4</td>
+              <td>36.83</td>
+              <td>36.66</td>
+            </tr>
+            <tr>
+              <td class="row-label">Stochastic (0.5) BLEU4</td>
+              <td>34.41</td>
+              <td>34.49</td>
+            </tr>
+          </table>
+        </div>
+
+        
+      </div>
+    </div>
+
+
+    <h2 class="section-header">Next Steps</h2>
+    <div class="steps-container">
+      <div class="row justify-content-center align-items-center reflection">
+        <div class="col-10">
+          <div class="header">
+            Improve network performance via additional training
+          </div>
+          <div class="description">
+            Our current network was only trained on a 1/5th of the available dataset in order save time. By training the network on the full dataset the network will be exposed to more 
+            image subjects and sentence structures and thus better learn to represent images through text.
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center reflection">
+        <div class="col-10">
+          <div class="header">
+            Train network to caption videos
+          </div>
+          <div class="description">
+            We can begin training the network to caption videos by representing each frame as a single image and concatenating the feature representation of each frame together to use as 
+            input into the LSTM. Undoubtably such training would be slow, thus further research is required to improve the training time.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <h2 class="section-header">What I Learned</h2>
+    <div class="learned-container">
+      <div class="row justify-content-center align-items-center reflection">
+        <div class="col-10">
+          <div class="header">
+            Training neural networks is hard...but rewarding!
+          </div>
+          <div class="description">
+            Anyone who has experience with neural nets knows that this is a given, but it really has to be said. There are a million different reasons why a neural net 
+            can fail and debugging this failure is a nightmare. Consulting the expert advice of our fellow computer science PhD students and referring to <a href="https://d2l.ai/">
+            Dive into Deep Learning</a> were critical steps needed to get our network running, and once that network gets running and training there really is no better feeling.
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center reflection">
+        <div class="col-10">
+          <div class="header">
+            Prioritizing planning and collaboration
+          </div>
+          <div class="description">
+            With something as complicated as neural nets, you can't have a single developer go in all gung ho and expect to have a working neural net in an afternoon. This was especially true in our
+            case as designing an image captioning neural net required days of planning and designing the architecture of the network to fufill our needs. Should we use word embedding? Should we use a pre-trained 
+            CNN or train one ourselves? Should we add multiple layers to our LSTM? These were all questions we asked and debated for days, and in doing so, were able to create the high-performing TICN we know and love.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+  </div>
+
+    
+    
+   
+  </body>
+</html>

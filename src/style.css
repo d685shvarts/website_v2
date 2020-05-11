@@ -1,8 +1,3 @@
-h1 {
-    color: #f8f;
-}
-
-
 div.left-nav {
     display: flex;
     justify-content: space-between;
@@ -18,7 +13,7 @@ div.left-nav {
     text-align: right;
 }
 
-.nav-link a{
+.nav-link a {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.25em;
@@ -42,7 +37,7 @@ div.left-nav {
     text-decoration: none;
     letter-spacing: 0em;
     margin-bottom: 0.5em;
-    
+
 }
 
 
@@ -50,22 +45,276 @@ div.left-nav {
     padding: 150px 0;
 }
 
-.fade-1 { 
+.fade-1 {
     animation-name: fadeInAnimation;
     animation-duration: 5s;
-} 
+}
 
 
 .fade-2 {
     animation-name: fadeInAnimation;
-    animation-duration: 2s !important;  
+    animation-duration: 2s !important;
 }
-  
-@keyframes fadeInAnimation { 
-    0% { 
-        opacity: 0; 
-    } 
-    100% { 
-        opacity: 1; 
-     } 
-} 
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.project-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.project-container img {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+
+.project-container:hover .project-container img {
+    opacity: 0;
+}
+
+#project-display h2 {
+    font-size: 1em;
+    letter-spacing: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2em;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0em;
+    margin-bottom: 0.5em;
+    color: dimgray;
+    text-align: center;
+}
+
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.5);
+    /* Black see-through */
+}
+
+
+.project-overlay h3 {
+    font-size: 1em;
+    letter-spacing: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.0em;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0em;
+    margin-bottom: 0.5em;
+    margin: 50px 0;
+    color: #111;
+}
+
+.project-container:hover .project-overlay {
+    opacity: 1;
+}
+
+.left-nav-mobile {
+    display: none;
+}
+
+
+.about-photo img{
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
+
+@media screen and (max-width: 992px) {
+    body {
+
+    }
+  }
+
+
+.about-container {
+    padding-top: 50px;
+}
+
+.about-container h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.2em;
+    font-size: 1.3em;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0em;
+    padding: 40px 0;
+}
+
+.about-container p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5em;
+    font-size: 18px;
+    text-transform: none;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    margin: 0 0 1em;
+}
+
+.about-info a {
+
+    color: inherit;
+}
+
+
+#project-display {
+    padding-top: 100px;
+}
+
+
+.TICN h1 {
+    color: #8a8a8a;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.7em;
+    font-size: 3.2em;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 50px 0 20px;
+}
+
+.project-description {
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5em;
+    font-size: 18px;
+    text-transform: none;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    margin: 0 0 1em;
+}
+
+.project-photos {
+    padding: 50px 0;
+}
+
+h1.project-section-header {
+    color: #3b4759;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.7em;
+    font-size: 24px;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0em;
+    text-align: start;
+    padding: 0;
+
+}
+
+.team-list h2 {
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 18px;
+    text-transform: none;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+
+}
+
+.purpose-container {
+    padding-bottom: 100px;
+}
+
+h2.section-header {
+    color: #3b4759;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.7em;
+    font-size: 24px;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0em;
+    padding-bottom: 30px;
+    text-align: center;
+
+}
+
+.network-training {
+    margin: 20px 0;
+}
+
+.network-training .caption {
+    padding-top: 50px;
+}
+
+.results .table-container th {
+    border: solid 2px currentColor;
+    padding: 5px;
+}
+
+.results .table-container td {
+    border: solid 2px currentColor;
+    padding: 5px;
+}
+
+.results .caption-results {
+    margin: 60px auto;
+    text-align: center;
+}
+
+.caption-results .row-label {
+    text-align: left;
+    font-weight: bold;
+}
+
+.caption-results .results_caption {
+    font-size: 13px;
+}
+
+.steps-container .header, .learned-container .header {
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.steps-container .reflection, .learned-container .reflection {
+    padding: 30px 0;
+}
