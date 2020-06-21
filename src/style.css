@@ -1,14 +1,23 @@
-div.left-nav {
+div.right-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.mx-auto.d-sm-flex.d-block.flex-sm-nowrap {
+    text-align: right;
 }
 
 .main-nav {
     height: 120px;
 }
 
-.left-nav .nav-link {
+.right-nav .nav-link {
     width: 50%;
     text-align: right;
 }
@@ -317,4 +326,15 @@ h2.section-header {
 
 .steps-container .reflection, .learned-container .reflection {
     padding: 30px 0;
+}
+
+.project-photos img {
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .network-training .caption {
+        text-align: center;
+    }
 }

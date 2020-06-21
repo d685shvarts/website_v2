@@ -29,7 +29,7 @@
     <div id="TICN-container" class="TICN container">
       <h1>Triton Image Captioning Network</h1>
 
-      <div class="row justify-content-center align-items-center project-description">
+      <div class="row d-none d-lg-block justify-content-center align-items-center project-description">
         <p>
         Triton Image Captioning Network is a <strong>neural network</strong> trained on ~60,000 images and ~500,000 captions from the Microsoft Common Objects in Context (COCO) dataset.
         The general structure of the network consists of a <strong>convolutional neural network</strong> (CNN) which encodes the features of an image into a vector,
@@ -39,26 +39,26 @@
       </div>
 
       <div class="row justify-content-around align-items-center project-photos">
-        <div class="col-3">
+        <div class="col-lg-3 col-12 text-center">
           <img src="./img/ex_img.png">
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-12 text-center">
           <img src="./img/ex_img2.png">
         </div>
 
-        <div class="col-3">
+        <div class="col-lg-3 col-12 text-center">
           <img src="./img/ex_img3.png">
         </div>
       </div>
 
       <div class="row justify-content-between align-items-center purpose-container project-description">
-        <div class="col-8 project-purpose">
+        <div class="col-md-8 col-12 project-purpose">
           Our team created TICN to meet the growing demand for quality captions in the digital age. As media of all forms increasingly moves online, large segments of the population 
           are left behind as a result of the <strong>lack of proper web accesibility</strong>. Yet with over 500 hours of video uploaded to Youtube alone every minute, captioning each video manually is 
           all but impossible and thus we must look for automated alternatives. We thus seek to apply the latest in deep learning technology to solve the task of <strong>novel image captioning</strong>.
         </div>
 
-        <div class="col-3 team-list">
+        <div class="col-3 d-none d-md-flex team-list">
           <h1 class="project-section-header">
             Team
           </h1>
@@ -99,50 +99,50 @@
 
     <h2 class="section-header">Training and Hyperparameter Tuning</h2>
     <div class="row justify-content-center align-items-start network-training">
-      <div class="col-3 caption">
+      <div class="col-md-3 col-10 order-md-1 order-2 caption">
         Needless to say, the initial network performance was pretty bad...
         </div>
-      <div class="col-3">
+      <div class="col-md-3 col-10 order-md-2 order-1" >
         <img src="./img/ex_img4.png">
       </div>
     </div>
 
     <div class="row justify-content-center align-items-start network-training">
-      <div class="col-3 caption">
+      <div class="col-md-3 col-10 order-md-1 order-2 caption">
         It even tried to cheat by spamming "&lt;start&gt;", which designates the start of a sentence, and because all
           captions had to begin with "&lt;start&gt;", it's error rate went down.
         </div>
-      <div class="col-3">
+      <div class="col-md-3 col-10 order-md-2 order-1">
         <img src="./img/ex_img5.png">
       </div>
     </div>
 
     <div class="row justify-content-center align-items-start network-training">
-      <div class="col-3 caption">
+      <div class="col-md-3 col-10 order-md-1 order-2 caption">
         Eventually it learned enough to identify some of the objects in the images and even create semi-coherent sentence structure.
         </div>
-      <div class="col-3">
+      <div class="col-md-3 col-10 order-md-2 order-1">
         <img src="./img/ex_img6.png">
       </div>
     </div>
 
 
     <div class="row justify-content-center align-items-start network-training">
-      <div class="col-3 caption">
+      <div class="col-md-3 col-10 order-md-1 order-2 caption">
         And after hours of training... <br>
         Wow, that's pretty good!
         </div>
-      <div class="col-3">
+      <div class="col-md-3 col-10 order-md-2 order-1">
         <img src="./img/ex_img7.png">
       </div>
     </div>
 
 
     <div class="row justify-content-center align-items-start network-training">
-      <div class="col-3 caption">
+      <div class="col-md-3 col-10 order-md-1 order-2 caption">
         Now look at it go!
         </div>
-      <div class="col-3">
+      <div class="col-md-3 col-10 order-md-2 order-1">
         <img src="./img/nn_gif.gif" width="480" height="216">
       </div>
     </div>
